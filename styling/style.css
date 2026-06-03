@@ -273,6 +273,40 @@ img {
     flex-shrink: 0;
 }
 
+/* NUMBERS LEGEND */
+.map-numbers-legend {
+    margin-top: 2rem;
+}
+
+.numbers-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    gap: 0.5rem 1.5rem;
+}
+
+.numbers-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--clr-txt-dark);
+}
+
+.number-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr-neutral-dark);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
 /* SVG MARKER TRANSITIONS */
 .map-marker rect {
     transition: fill 0.25s ease;

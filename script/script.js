@@ -1,3 +1,9 @@
+/*
+Skript für die Interaktivität der karte
+*/
+
+/* Skripte erstellt mithilfe von Claude.ai */
+
 const categories = {
   information: { numbers: [1], color: '#FF4757' },
   tauchschule:  { numbers: [2, 9], color: '#FFA502' },

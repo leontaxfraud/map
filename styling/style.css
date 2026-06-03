@@ -1,3 +1,6 @@
+/* Styling der Website 
+Teile davon übernommen aus Teil 1b */
+
 /* RESET */
 * {
     box-sizing: border-box;
@@ -75,6 +78,10 @@ img {
     height: auto;
 }
 
+.section-heading {
+    color: var(--clr-brand-blue);
+}
+
 /* NAVIGATION */
 /* Navigationsbar */
 .nav {
@@ -86,11 +93,6 @@ img {
     padding: 1.5rem 2rem;
     background-color: var(--clr-neutral-dark);
     transition: background 0.35s ease;
-}
-
-/* Navigation ab dem Scrollen */
-.nav.is-scrolled {
-    background: linear-gradient(to bottom, rgba(8, 24, 41, 0.72) 0%, rgba(8, 24, 41, 0) 100%);
 }
 
 /* Responsive Navigation: Hamburger-Menu */
@@ -152,8 +154,8 @@ img {
 
 
 
-/* TAUCHSPOTS MIT INTERAKTIVER KARTE */
-.tauchspots {
+/* resortspots MIT INTERAKTIVER KARTE */
+.resortspots {
     background-color: var(--clr-neutral-a);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -163,19 +165,19 @@ img {
     padding-bottom: 4rem;
 }
 
-.tauchspots-map {
+.resortspots-map {
     padding-top: 2rem;
     padding-right: 2rem;
 }
 
-.tauchspots-text {
+.resortspots-text {
     padding: 5rem 3rem 5rem 6rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.tauchspots-text h2 {
+.resortspots-text h2 {
     font-size: clamp(2.5rem, 4.5vw, 5rem);
     font-weight: 400;
     color: var(--clr-neutral-dark);

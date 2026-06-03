@@ -75,6 +75,10 @@ img {
     height: auto;
 }
 
+.label {
+    color: var(--clr-brand-blue);
+}
+
 /* NAVIGATION */
 /* Navigationsbar */
 .nav {

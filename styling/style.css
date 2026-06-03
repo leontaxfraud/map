@@ -159,6 +159,8 @@ img {
     grid-template-columns: 1fr 1fr;
     align-items: start;
     min-height: 480px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .tauchspots-text {

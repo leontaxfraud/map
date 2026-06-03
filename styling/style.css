@@ -163,6 +163,11 @@ img {
     padding-bottom: 4rem;
 }
 
+.tauchspots-map {
+    padding-top: 2rem;
+    padding-right: 2rem;
+}
+
 .tauchspots-text {
     padding: 5rem 3rem 5rem 6rem;
     display: flex;

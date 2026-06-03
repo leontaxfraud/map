@@ -224,6 +224,29 @@ img {
     background: var(--clr-neutral-b);
 }
 
+.filter-clear {
+    font-family: var(--p-txt);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.45rem 0.8rem;
+    border: 2px solid #aaa;
+    background: transparent;
+    color: #aaa;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    display: none;
+}
+
+.filter-clear.visible {
+    display: inline-block;
+}
+
+.filter-clear:hover {
+    border-color: var(--clr-neutral-dark);
+    color: var(--clr-neutral-dark);
+}
+
 .filter-btn.active[data-category="information"] {
     background: #FF4757;
     border-color: #FF4757;

@@ -11,38 +11,54 @@ const categories = {
   sanitaer:     { numbers: [3, 4, 5], color: '#00BCD4' },
 };
 
-let activeCategory = null;
+const activeCategories = new Set();
+const clearBtn = document.getElementById('filter-clear');
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', function () {
     const cat = this.dataset.category;
-    if (activeCategory === cat) {
-      activeCategory = null;
-      resetMarkers();
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (activeCategories.has(cat)) {
+      activeCategories.delete(cat);
+      this.classList.remove('active');
     } else {
-      activeCategory = cat;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      activeCategories.add(cat);
       this.classList.add('active');
-      applyFilter(cat);
     }
+    applyFilter();
+    clearBtn.classList.toggle('visible', activeCategories.size > 0);
   });
+});
+
+clearBtn.addEventListener('click', () => {
+  activeCategories.clear();
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  resetMarkers();
+  clearBtn.classList.remove('visible');
 });
 
 function resetMarkers() {
   document.querySelectorAll('.map-marker').forEach(m => {
     m.querySelector('rect').style.fill = '';
     m.classList.remove('map-marker--dimmed');
-    m.style.opacity = '';
   });
 }
 
-function applyFilter(cat) {
-  const { numbers, color } = categories[cat];
+function applyFilter() {
+  if (activeCategories.size === 0) {
+    resetMarkers();
+    return;
+  }
+
+  const activeNumbers = new Set();
+  activeCategories.forEach(cat => {
+    categories[cat].numbers.forEach(n => activeNumbers.add(n));
+  });
+
   document.querySelectorAll('.map-marker').forEach(m => {
     const num = parseInt(m.dataset.number, 10);
-    if (numbers.includes(num)) {
-      m.querySelector('rect').style.fill = color;
+    if (activeNumbers.has(num)) {
+      const cat = [...activeCategories].find(c => categories[c].numbers.includes(num));
+      m.querySelector('rect').style.fill = categories[cat].color;
       m.classList.remove('map-marker--dimmed');
     } else {
       m.querySelector('rect').style.fill = '';
